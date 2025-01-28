@@ -1,0 +1,4 @@
+.beacon-light {
+  width: 150px; /* Adjust size as needed */
+  transition: opacity 0.5s ease-in-out;
+}

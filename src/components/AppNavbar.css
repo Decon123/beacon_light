@@ -1,0 +1,67 @@
+/* Ensuring the full viewport size */
+.App {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    to bottom,
+    #f0f8ff,
+    #dbeafe
+  ); /* Soft blue gradient */
+  position: relative;
+  flex-direction: column;
+}
+
+/* Light-colored overlay with a glass effect */
+.color-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4); /* Light white overlay */
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  z-index: 1; /* Ensure overlay is behind beacon light & button */
+  border-radius: 10px;
+}
+
+/* Centered content container */
+.content-container {
+  position: absolute;
+  z-index: 2; /* Place above overlay */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Styling for the beacon light */
+.beacon-light {
+  width: 150px;
+  transition: opacity 0.5s ease-in-out;
+  filter: drop-shadow(
+    0px 10px 20px rgba(255, 200, 0, 0.6)
+  ); /* Soft glow effect */
+}
+
+/* Beautiful modern button */
+.button {
+  padding: 12px 24px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #ff6b6b, #ff8e53); /* Vibrant gradient */
+  color: white;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(255, 107, 107, 0.3);
+}
+
+.button:hover {
+  background: linear-gradient(135deg, #ff4f4f, #ff7a3d);
+  transform: scale(1.05);
+}

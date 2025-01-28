@@ -1,0 +1,84 @@
+/* Ensures full viewport height and centers content */
+.App {
+  min-height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centers content in column direction */
+  background: linear-gradient(
+    to bottom,
+    #e6f0ff,
+    #c2d9ff
+  ); /* Light blue gradient */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Lighter overlay to improve logo visibility */
+.color-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3); /* Reduced opacity for clarity */
+  backdrop-filter: blur(8px) contrast(1.05); /* Lighter blur & contrast */
+  z-index: 1; /* Ensures it's behind content */
+}
+
+/* Centers content in column direction */
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  text-align: center;
+  position: absolute;
+  z-index: 2; /* Above overlay */
+}
+
+/* Adjusts Hyundai logo size */
+.hyundai-logo {
+  width: 50%;
+  max-width: 300px; /* Increase size */
+  position: absolute;
+  top: 20%; /* Moves it higher */
+  z-index: 2; /* Ensure it is visible */
+}
+
+/* Enhancing beacon light */
+.beacon-light {
+  width: 80%;
+  max-width: 200px;
+  transition: opacity 0.5s ease-in-out;
+  filter: drop-shadow(
+    0px 15px 30px rgba(255, 180, 0, 0.75)
+  ); /* Stronger glow */
+}
+
+/* Modern button with better contrast */
+.button {
+  padding: 12px 24px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #ff4d4d, #ff914d);
+  color: white;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 6px 12px rgba(255, 80, 80, 0.4);
+  width: 80%;
+  max-width: 250px;
+  text-align: center;
+}
+
+.button:hover {
+  background: linear-gradient(135deg, #ff3333, #ff7a3d);
+  transform: scale(1.08);
+}
