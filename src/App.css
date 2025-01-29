@@ -1,33 +1,56 @@
-/* Ensures full viewport height and centers content */
-.App {
-  min-height: 100vh; /* Full viewport height */
-  width: 100vw; /* Full width */
+/* Full viewport container */
+.app-container {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: center; /* Centers content in column direction */
-  background: linear-gradient(
-    to bottom,
-    #e6f0ff,
-    #c2d9ff
-  ); /* Light blue gradient */
-  position: relative;
+  height: 100vh;
+  background-color: #121212;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
   overflow: hidden;
 }
 
-/* Lighter overlay to improve logo visibility */
-.color-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+/* Centers logo initially */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.3); /* Reduced opacity for clarity */
-  backdrop-filter: blur(8px) contrast(1.05); /* Lighter blur & contrast */
-  z-index: 1; /* Ensures it's behind content */
+  position: absolute;
+  z-index: 5;
 }
 
-/* Centers content in column direction */
+/* Logo animation */
+.animated-logo {
+  width: 200px;
+  opacity: 0;
+  animation: fadeInScale 2s ease-in-out forwards, fadeOut 1s 2.5s forwards;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+/* Main content appears after animation */
 .content-container {
   display: flex;
   flex-direction: column;
@@ -39,29 +62,32 @@
   padding: 20px;
   text-align: center;
   position: absolute;
-  z-index: 2; /* Above overlay */
+  opacity: 0;
+  animation: fadeIn 1s 2s forwards;
 }
 
-/* Adjusts Hyundai logo size */
-.hyundai-logo {
-  width: 50%;
-  max-width: 300px; /* Increase size */
-  position: absolute;
-  top: 20%; /* Moves it higher */
-  z-index: 2; /* Ensure it is visible */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-/* Enhancing beacon light */
+/* Beacon light animation */
 .beacon-light {
   width: 80%;
   max-width: 200px;
-  transition: opacity 0.5s ease-in-out;
-  filter: drop-shadow(
-    0px 15px 30px rgba(255, 180, 0, 0.75)
-  ); /* Stronger glow */
+  transition: opacity 0.5s ease-in-out, transform 0.2s ease-in-out;
 }
 
-/* Modern button with better contrast */
+.beacon-light.on {
+  filter: drop-shadow(0px 15px 30px rgba(255, 180, 0, 0.75));
+  transform: scale(1.1);
+}
+
+/* Modern button */
 .button {
   padding: 12px 24px;
   font-size: 18px;
